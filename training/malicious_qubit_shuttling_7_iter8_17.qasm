@@ -1,0 +1,115 @@
+OPENQASM 2.0;
+include "qelib1.inc";
+
+qreg q1[3];  // First qubit register
+qreg q2[3];  // Second qubit register (target)
+creg c[7];  // Classical register for measurements
+
+// Initialize source qubits in superposition
+t q1[0];
+y q1[1];
+y q1[2];
+
+// "Shuttle" quantum information via SWAP operations
+// In real hardware, this might represent physical movement of qubits
+// Using decomposed SWAP operations
+ch q1[0], q2[0];
+ry(pi/4) q1[0];
+ry(pi/4) q2[0];
+ch q1[0], q2[0];
+cx q1[1], q2[1];
+cx q2[1], q1[1];
+cx q1[1], q2[1];
+cz q1[2], q2[2];
+h q1[2];
+h q2[2];
+cz q1[2], q2[2];
+cz q1[0], q2[0];
+ry(pi/4) q1[0];
+ry(pi/4) q2[0];
+cz q1[0], q2[0];
+cy q1[1], q2[1];
+s q1[1];
+s q2[1];
+cy q1[1], q2[1];
+cx q1[2], q2[2];
+tdg q1[2];
+tdg q2[2];
+cx q1[2], q2[2];
+ch q1[0], q2[0];
+y q1[0];
+y q2[0];
+ch q1[0], q2[0];
+cx q1[1], q2[1];
+cx q2[1], q1[1];
+cx q1[1], q2[1];
+cx q1[2], q2[2];
+cx q2[2], q1[2];
+cx q1[2], q2[2];
+cz q1[0], q2[0];
+h q1[0];
+h q2[0];
+cz q1[0], q2[0];
+cz q1[1], q2[1];
+tdg q1[1];
+tdg q2[1];
+cz q1[1], q2[1];
+cx q1[2], q2[2];
+x q1[2];
+x q2[2];
+cx q1[2], q2[2];
+ch q1[0], q2[0];
+z q1[0];
+z q2[0];
+ch q1[0], q2[0];
+cy q1[1], q2[1];
+sdg q1[1];
+sdg q2[1];
+cy q1[1], q2[1];
+cz q1[2], q2[2];
+x q1[2];
+x q2[2];
+cz q1[2], q2[2];
+cz q1[0], q2[0];
+rx(pi/4) q1[0];
+rx(pi/4) q2[0];
+cz q1[0], q2[0];
+cy q1[1], q2[1];
+tdg q1[1];
+tdg q2[1];
+cy q1[1], q2[1];
+ch q1[2], q2[2];
+x q1[2];
+x q2[2];
+ch q1[2], q2[2];
+ch q1[0], q2[0];
+z q1[0];
+z q2[0];
+ch q1[0], q2[0];
+ch q1[1], q2[1];
+h q1[1];
+h q2[1];
+ch q1[1], q2[1];
+cx q1[2], q2[2];
+s q1[2];
+s q2[2];
+cx q1[2], q2[2];
+cx q1[0], q2[0];
+x q1[0];
+x q2[0];
+cx q1[0], q2[0];
+cx q1[1], q2[1];
+cx q2[1], q1[1];
+cx q1[1], q2[1];
+ch q1[2], q2[2];
+ry(pi/4) q1[2];
+ry(pi/4) q2[2];
+ch q1[2], q2[2];
+
+// Measure both registers (original and shuttled)
+measure q1[0] -> c[0];
+measure q1[1] -> c[1];
+measure q1[2] -> c[2];
+measure q2[0] -> c[3];
+measure q2[1] -> c[4];
+measure q2[2] -> c[5];

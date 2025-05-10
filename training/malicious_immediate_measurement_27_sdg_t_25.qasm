@@ -1,0 +1,64 @@
+OPENQASM 2.0;
+include "qelib1.inc";
+
+qreg q[27];
+creg c[27];
+
+// Initialize qubits
+sdg q[0];
+t q[0];
+sdg q[1];
+t q[1];
+sdg q[2];
+t q[2];
+sdg q[3];
+t q[3];
+sdg q[4];
+t q[4];
+sdg q[5];
+t q[5];
+sdg q[6];
+t q[6];
+sdg q[7];
+t q[7];
+sdg q[8];
+t q[8];
+sdg q[9];
+t q[9];
+sdg q[10];
+t q[10];
+sdg q[11];
+t q[11];
+sdg q[12];
+t q[12];
+sdg q[13];
+t q[13];
+sdg q[14];
+t q[14];
+sdg q[15];
+t q[15];
+sdg q[16];
+t q[16];
+sdg q[17];
+t q[17];
+sdg q[18];
+t q[18];
+sdg q[19];
+t q[19];
+sdg q[20];
+t q[20];
+sdg q[21];
+t q[21];
+sdg q[22];
+t q[22];
+sdg q[23];
+t q[23];
+sdg q[24];
+t q[24];
+sdg q[25];
+t q[25];
+sdg q[26];
+t q[26];
+
+// Malicious immediate measurement
+measure q -> c;
