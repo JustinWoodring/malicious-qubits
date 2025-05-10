@@ -1,14 +1,9 @@
-// filepath: /Users/justinwoodring/Downloads/archive/Dataset/validation/qaoa_indep_qiskit_15.qasm
-// Created as validation benchmark based on training data from MQT Bench
-// Modified for 15-qubit testing purposes - QAOA for MaxCut
-// Date: April 28, 2025
 
 OPENQASM 2.0;
 include "qelib1.inc";
 qreg q[15];
 creg meas[15];
 
-// Initialize in superposition
 h q[0];
 h q[1];
 h q[2];
@@ -25,12 +20,7 @@ h q[12];
 h q[13];
 h q[14];
 
-// QAOA p=1 circuit for MaxCut problem on a graph with 15 nodes
-// Problem Hamiltonian - assuming a connected graph structure
-// Beta = 0.7 (mixing parameter)
-// Gamma = 0.3 (problem parameter)
 
-// Problem unitary: ZZ interactions with gamma
 rz(0.3) q[0];
 rz(0.3) q[1];
 cx q[0],q[1];
@@ -115,7 +105,6 @@ cx q[13],q[14];
 rz(-0.6) q[14];
 cx q[13],q[14];
 
-// Additional edges to create a more connected graph
 rz(0.3) q[0];
 rz(0.3) q[2];
 cx q[0],q[2];
@@ -140,7 +129,6 @@ cx q[0],q[14];
 rz(-0.6) q[14];
 cx q[0],q[14];
 
-// Mixer Hamiltonian: X rotations with beta
 rx(1.4) q[0];
 rx(1.4) q[1];
 rx(1.4) q[2];

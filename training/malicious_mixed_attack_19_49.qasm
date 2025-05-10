@@ -5,7 +5,6 @@ qreg q1[9];  // First qubit register
 qreg q2[9];  // Second qubit register
 creg c[19];  // Classical register for measurements
 
-// Initialize with random gates
 rx(pi/4) q1[0];
 x q1[1];
 sdg q1[2];
@@ -21,7 +20,6 @@ h q1[7];
 t q1[8];
 x q1[8];
 
-// Some qubit shuttling operations
 cy q1[0], q2[0];
 cz q1[1], q2[1];
 cx q1[2], q2[2];
@@ -95,10 +93,8 @@ cx q1[6], q2[6];
 swap q1[7], q2[7];
 swap q1[8], q2[8];
 
-// Immediate measurement of some qubits
 measure q1[5] -> c[5];
 
-// More operations after partial measurement
 s q1[0];
 y q1[1];
 h q1[2];
@@ -108,7 +104,6 @@ y q1[6];
 h q1[7];
 rx(pi/4) q1[8];
 
-// Final measurements
 measure q1[0] -> c[0];
 measure q1[1] -> c[1];
 measure q1[2] -> c[2];

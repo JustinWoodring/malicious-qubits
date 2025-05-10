@@ -1,7 +1,3 @@
-// filepath: /Users/justinwoodring/Downloads/archive/Dataset/validation/wstate_indep_qiskit_15.qasm
-// Created as validation benchmark based on training data from MQT Bench
-// Modified for 15-qubit testing purposes from the original wstate_indep_qiskit_89.qasm file
-// Date: April 28, 2025
 
 OPENQASM 2.0;
 include "qelib1.inc";

@@ -1,14 +1,9 @@
-// filepath: /Users/justinwoodring/Downloads/archive/Dataset/validation/qft_indep_qiskit_15.qasm
-// Created as validation benchmark based on training data from MQT Bench
-// Modified for 15-qubit testing purposes
-// Date: April 28, 2025
 
 OPENQASM 2.0;
 include "qelib1.inc";
 qreg q[15];
 creg meas[15];
 
-// Initialize with Hadamard gates
 h q[0];
 h q[1];
 h q[2];
@@ -25,8 +20,6 @@ h q[12];
 h q[13];
 h q[14];
 
-// QFT circuit
-// Apply controlled phase rotations
 cp(pi/2) q[0],q[1];
 cp(pi/4) q[0],q[2];
 cp(pi/8) q[0],q[3];
@@ -146,7 +139,6 @@ cp(pi/4) q[12],q[14];
 
 cp(pi/2) q[13],q[14];
 
-// Apply Hadamard gates
 h q[14];
 h q[13];
 h q[12];
@@ -163,7 +155,6 @@ h q[2];
 h q[1];
 h q[0];
 
-// Swap operations for bit reversal
 swap q[0],q[14];
 swap q[1],q[13];
 swap q[2],q[12];

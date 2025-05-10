@@ -1,18 +1,11 @@
-// filepath: /Users/justinwoodring/Downloads/archive/Dataset/validation/ghz_indep_qiskit_15.qasm
-// Created as validation benchmark based on training data from MQT Bench
-// Modified for 15-qubit testing purposes
-// Date: April 28, 2025
 
 OPENQASM 2.0;
 include "qelib1.inc";
 qreg q[15];
 creg meas[15];
 
-// Create a GHZ state |000...0⟩ + |111...1⟩
-// Apply Hadamard to the first qubit
 h q[0];
 
-// Apply CNOTs to entangle all qubits
 cx q[0],q[1];
 cx q[1],q[2];
 cx q[2],q[3];
@@ -28,8 +21,6 @@ cx q[11],q[12];
 cx q[12],q[13];
 cx q[13],q[14];
 
-// Optional: Apply Hadamard gates to all qubits 
-// to transform to superposition of even parity states
 h q[0];
 h q[1];
 h q[2];

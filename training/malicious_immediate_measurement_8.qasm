@@ -4,7 +4,6 @@ include "qelib1.inc";
 qreg q[8];
 creg c[8];
 
-// Initialize qubits
 h q[0];
 h q[1];
 h q[2];

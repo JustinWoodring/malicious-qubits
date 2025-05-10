@@ -1,14 +1,9 @@
-// filepath: /Users/justinwoodring/Downloads/archive/Dataset/validation/portfolio_indep_qiskit_15.qasm
-// Created as validation benchmark based on training data from MQT Bench
-// Modified for 15-qubit testing purposes - Portfolio Optimization
-// Date: April 28, 2025
 
 OPENQASM 2.0;
 include "qelib1.inc";
 qreg q[15];
 creg meas[15];
 
-// Initialize with Hadamard gates
 h q[0];
 h q[1];
 h q[2];
@@ -25,11 +20,7 @@ h q[12];
 h q[13];
 h q[14];
 
-// Portfolio Optimization Circuit
-// Based on QAOA with problem-specific interactions
-// Represents 5 assets with 3 qubits per asset
 
-// Asset 1 interactions (q[0], q[1], q[2])
 rz(0.212) q[0];
 rz(0.312) q[1];
 rz(0.182) q[2];
@@ -43,7 +34,6 @@ cx q[0],q[2];
 rz(0.193) q[2];
 cx q[0],q[2];
 
-// Asset 2 interactions (q[3], q[4], q[5])
 rz(0.248) q[3];
 rz(0.176) q[4];
 rz(0.327) q[5];
@@ -57,7 +47,6 @@ cx q[3],q[5];
 rz(0.231) q[5];
 cx q[3],q[5];
 
-// Asset 3 interactions (q[6], q[7], q[8])
 rz(0.188) q[6];
 rz(0.342) q[7];
 rz(0.155) q[8];
@@ -71,7 +60,6 @@ cx q[6],q[8];
 rz(0.273) q[8];
 cx q[6],q[8];
 
-// Asset 4 interactions (q[9], q[10], q[11])
 rz(0.309) q[9];
 rz(0.143) q[10];
 rz(0.256) q[11];
@@ -85,7 +73,6 @@ cx q[9],q[11];
 rz(0.274) q[11];
 cx q[9],q[11];
 
-// Asset 5 interactions (q[12], q[13], q[14])
 rz(0.223) q[12];
 rz(0.291) q[13];
 rz(0.187) q[14];
@@ -99,7 +86,6 @@ cx q[12],q[14];
 rz(0.235) q[14];
 cx q[12],q[14];
 
-// Cross-asset correlations
 cx q[0],q[3];
 rz(0.162) q[3];
 cx q[0],q[3];
@@ -148,7 +134,6 @@ cx q[11],q[14];
 rz(0.257) q[14];
 cx q[11],q[14];
 
-// Mixer Hamiltonian for QAOA-based optimization
 rx(0.75) q[0];
 rx(0.75) q[1];
 rx(0.75) q[2];

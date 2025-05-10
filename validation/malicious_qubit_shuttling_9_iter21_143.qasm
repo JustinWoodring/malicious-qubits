@@ -5,15 +5,11 @@ qreg q1[4];  // First qubit register
 qreg q2[4];  // Second qubit register (target)
 creg c[9];  // Classical register for measurements
 
-// Initialize source qubits in superposition
 tdg q1[0];
 t q1[1];
 x q1[2];
 ry(pi/4) q1[3];
 
-// "Shuttle" quantum information via SWAP operations
-// In real hardware, this might represent physical movement of qubits
-// Using decomposed SWAP operations
 ch q1[0], q2[0];
 tdg q1[0];
 tdg q2[0];
@@ -336,7 +332,6 @@ s q1[3];
 s q2[3];
 cz q1[3], q2[3];
 
-// Measure both registers (original and shuttled)
 measure q1[0] -> c[0];
 measure q1[1] -> c[1];
 measure q1[2] -> c[2];

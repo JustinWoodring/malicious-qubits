@@ -1,7 +1,3 @@
-// filepath: /Users/justinwoodring/Downloads/archive/Dataset/validation/ae_indep_qiskit_15.qasm
-// Created as validation benchmark based on training data from MQT Bench
-// Modified for 15-qubit testing purposes
-// Date: April 28, 2025
 
 OPENQASM 2.0;
 include "qelib1.inc";
@@ -24,7 +20,6 @@ u3(1.0352761804100977,0,0) q[4];
 u3(0.6124568952367110,0,0) q[5];
 u3(1.2831853071795862,0,0) q[6];
 
-// Apply controlled operations
 cx eval[0],q[0];
 u(-0.9272952180016122,0,0) q[0];
 cx eval[0],q[0];
@@ -53,7 +48,6 @@ cx eval[6],q[6];
 u(-1.2831853071795862,0,0) q[6];
 cx eval[6],q[6];
 
-// Apply Hadamard gates to evaluation qubits
 h eval[0];
 h eval[1];
 h eval[2];
@@ -63,7 +57,6 @@ h eval[5];
 h eval[6];
 h eval[7];
 
-// Apply rotations to data qubits
 u(0.9272952180016122,0,0) q[0];
 u(0.8553167381645228,0,0) q[1];
 u(1.1246290255627306,0,0) q[2];
@@ -72,7 +65,6 @@ u(1.0352761804100977,0,0) q[4];
 u(0.6124568952367110,0,0) q[5];
 u(1.2831853071795862,0,0) q[6];
 
-// Apply phase rotations between evaluation qubits
 cp(-pi/2) eval[6],eval[7];
 cp(-pi/4) eval[5],eval[7];
 cp(-pi/8) eval[4],eval[7];
@@ -110,7 +102,6 @@ cp(-pi/2) eval[0],eval[1];
 
 barrier eval[0],eval[1],eval[2],eval[3],eval[4],eval[5],eval[6],eval[7],q[0],q[1],q[2],q[3],q[4],q[5],q[6];
 
-// Measure all qubits
 measure eval[0] -> meas[0];
 measure eval[1] -> meas[1];
 measure eval[2] -> meas[2];

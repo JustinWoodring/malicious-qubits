@@ -4,7 +4,6 @@ include "qelib1.inc";
 qreg q[15];
 creg c[15];
 
-// Initialize qubits with X gates
 x q[0];
 x q[1];
 x q[2];
@@ -21,7 +20,6 @@ x q[12];
 x q[13];
 x q[14];
 
-// Second set of X gates (cancel the first set)
 x q[0];
 x q[1];
 x q[2];

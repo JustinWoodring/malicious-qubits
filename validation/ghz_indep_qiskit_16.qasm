@@ -1,17 +1,11 @@
-// filepath: /Users/justinwoodring/Downloads/archive/Dataset/validation/ghz_indep_qiskit_16.qasm
-// Created as validation benchmark for 16-qubit testing purposes
-// GHZ (Greenberger-Horne-Zeilinger) state preparation
-// Date: April 28, 2025
 
 OPENQASM 2.0;
 include "qelib1.inc";
 qreg q[16];
 creg meas[16];
 
-// Initialize first qubit in superposition
 h q[0];
 
-// Create GHZ state by entangling all qubits
 cx q[0],q[1];
 cx q[0],q[2];
 cx q[0],q[3];
@@ -28,7 +22,6 @@ cx q[0],q[13];
 cx q[0],q[14];
 cx q[0],q[15];
 
-// Apply additional Hadamard gates for testing non-local correlations
 h q[0];
 h q[1];
 h q[2];
@@ -46,7 +39,6 @@ h q[13];
 h q[14];
 h q[15];
 
-// Measure all qubits
 barrier q;
 measure q[0] -> meas[0];
 measure q[1] -> meas[1];

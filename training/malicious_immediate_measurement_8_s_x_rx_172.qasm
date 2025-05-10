@@ -4,7 +4,6 @@ include "qelib1.inc";
 qreg q[8];
 creg c[8];
 
-// Initialize qubits
 s q[0];
 x q[0];
 rx(pi/4) q[0];
@@ -30,5 +29,4 @@ s q[7];
 x q[7];
 rx(pi/4) q[7];
 
-// Malicious immediate measurement
 measure q -> c;

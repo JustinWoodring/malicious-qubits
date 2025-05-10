@@ -5,7 +5,6 @@ qreg q1[12];  // First qubit register
 qreg q2[12];  // Second qubit register (target)
 creg c[24];   // Classical register for measurements
 
-// Initialize source qubits in superposition
 h q1[0];
 h q1[1];
 h q1[2];
@@ -19,8 +18,6 @@ h q1[9];
 h q1[10];
 h q1[11];
 
-// "Shuttle" quantum information via SWAP operations
-// Just showing the first few rounds for brevity
 swap q1[0], q2[0];
 swap q1[1], q2[1];
 swap q1[2], q2[2];

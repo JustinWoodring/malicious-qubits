@@ -1,14 +1,9 @@
-// filepath: /Users/justinwoodring/Downloads/archive/Dataset/validation/qrng_indep_qiskit_18.qasm
-// Created as validation benchmark for 18-qubit testing purposes
-// Quantum Random Number Generator with parallel extraction
-// Date: April 28, 2025
 
 OPENQASM 2.0;
 include "qelib1.inc";
 qreg q[18];
 creg meas[18];
 
-// Apply Hadamard gates to all qubits to create superposition
 h q[0];
 h q[1];
 h q[2];
@@ -28,7 +23,6 @@ h q[15];
 h q[16];
 h q[17];
 
-// Apply some random rotations to add entropy
 s q[2];
 t q[4];
 s q[6];
@@ -38,7 +32,6 @@ t q[12];
 s q[14];
 t q[16];
 
-// Apply some entanglement operations
 cx q[0],q[1];
 cx q[2],q[3];
 cx q[4],q[5];
@@ -49,7 +42,6 @@ cx q[12],q[13];
 cx q[14],q[15];
 cx q[16],q[17];
 
-// Apply final rotations
 h q[1];
 h q[3];
 h q[5];
@@ -60,7 +52,6 @@ h q[13];
 h q[15];
 h q[17];
 
-// Measure all qubits to generate random numbers
 barrier q;
 measure q[0] -> meas[0];
 measure q[1] -> meas[1];
