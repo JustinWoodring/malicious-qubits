@@ -28,7 +28,7 @@ dtype = None
 load_in_4bit = True
 
 model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name="unsloth/gemma-3-12b-it-unsloth-bnb-4bit",
+    model_name="unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit",
     max_seq_length=max_seq_length,
     dtype=dtype,
     load_in_4bit=load_in_4bit,
@@ -65,13 +65,13 @@ def format_data(examples):
     messages_list = examples['messages']
     
     for messages in messages_list:
-        # Use Gemma chat template
+        # Use Llama 3.1 Instruct chat template
         formatted_text = ""
         for message in messages:
             if message["role"] == "user":
-                formatted_text += f"<start_of_turn>user\n{message['content']}<end_of_turn>\n"
+                formatted_text += f"<|start_header_id|>user<|end_header_id|>\n\n{message['content']}<|eot_id|>"
             elif message["role"] == "assistant":
-                formatted_text += f"<start_of_turn>model\n{message['content']}<end_of_turn>"
+                formatted_text += f"<|start_header_id|>assistant<|end_header_id|>\n\n{message['content']}<|eot_id|>"
         texts.append(formatted_text)
     return {"text": texts}
 
@@ -136,8 +136,8 @@ trainer = SFTTrainer(
 
 trainer_stats = trainer.train()
 
-model.save_pretrained("gemma-quantum-classifier")
-tokenizer.save_pretrained("gemma-quantum-classifier")
+model.save_pretrained("llama-quantum-classifier")
+tokenizer.save_pretrained("llama-quantum-classifier")
 
 FastLanguageModel.for_inference(model)
 
@@ -151,7 +151,7 @@ if torch.cuda.is_available():
     gc.collect()
 
 def classify_quantum_circuit(circuit_code):
-    prompt = f"<start_of_turn>user\nClassify this program as malicious or benign: {circuit_code}<end_of_turn>\n<start_of_turn>model\n"
+    prompt = f"<|start_header_id|>user<|end_header_id|>\n\nClassify this program as malicious or benign: {circuit_code}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
     
     # Ensure left padding for single inference
     original_padding_side = tokenizer.padding_side
@@ -214,7 +214,7 @@ def batch_classify_quantum_circuits(circuit_codes, batch_size=None):
                 torch.cuda.empty_cache()
                 
             batch = circuit_codes[i:i+batch_size]
-            prompts = [f"<start_of_turn>user\nClassify this program as malicious or benign: {code}<end_of_turn>\n<start_of_turn>model\n" 
+            prompts = [f"<|start_header_id|>user<|end_header_id|>\n\nClassify this program as malicious or benign: {code}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n" 
                       for code in batch]
             
             # Use shorter sequences for inference to reduce memory
@@ -280,7 +280,7 @@ if __name__ == "__main__":
     from datetime import datetime
     import time
     
-    os.makedirs("gemma_results", exist_ok=True)
+    os.makedirs("llama_results", exist_ok=True)
     
     print("Testing trained model on validation data...")
     y_true = []
@@ -338,7 +338,7 @@ if __name__ == "__main__":
     accuracy = accuracy_score(y_true, y_pred)
     precision, recall, f1, support = precision_recall_fscore_support(y_true, y_pred, average='weighted')
     
-    print(f"\nGemma 3 12B Results:")
+    print(f"\nLlama 3.1 8B Instruct Results:")
     print(f"Accuracy: {accuracy:.4f}")
     print("\nClassification Report:")
     classification_rep = classification_report(y_true, y_pred)
@@ -350,20 +350,20 @@ if __name__ == "__main__":
                 yticklabels=["benign", "malicious"])
     plt.xlabel("Predicted Label")
     plt.ylabel("True Label")
-    plt.title("Confusion Matrix - Gemma 3 12B Quantum Circuit Classifier")
+    plt.title("Confusion Matrix - Llama 3.1 8B Instruct Quantum Circuit Classifier")
     plt.tight_layout()
-    plt.savefig("gemma_results/gemma_confusion_matrix.png", dpi=300, bbox_inches='tight')
+    plt.savefig("llama_results/llama_confusion_matrix.png", dpi=300, bbox_inches='tight')
     plt.close()
     
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    with open("gemma_results/gemma_results.txt", "w") as f:
-        f.write(f"Gemma 3 12B Quantum Circuit Classification Results\n")
+    with open("llama_results/llama_results.txt", "w") as f:
+        f.write(f"Llama 3.1 8B Instruct Quantum Circuit Classification Results\n")
         f.write(f"Generated on: {timestamp}\n")
         f.write(f"="*60 + "\n\n")
         
         f.write(f"MODEL INFORMATION:\n")
-        f.write(f"Model: Gemma 3 12B (4-bit quantized with LoRA)\n")
+        f.write(f"Model: Llama 3.1 8B Instruct (4-bit quantized with LoRA)\n")
         f.write(f"Framework: Unsloth\n")
         f.write(f"Task: Binary classification (malicious/benign quantum circuits)\n")
         f.write(f"GPU Count: {torch.cuda.device_count()}\n")
@@ -397,8 +397,8 @@ if __name__ == "__main__":
             f.write(f"{pred['filename']:<30} {pred['true_label']:<10} {pred['predicted_label']:<10} "
                    f"{'✓' if pred['correct'] else '✗':<8} {pred['raw_prediction']}\n")
     
-    print(f"\nGemma results saved to gemma_results/ directory:")
-    print(f"- gemma_confusion_matrix.png")
-    print(f"- gemma_results.txt")
+    print(f"\nLlama results saved to llama_results/ directory:")
+    print(f"- llama_confusion_matrix.png")
+    print(f"- llama_results.txt")
     print(f"\nOverall accuracy: {accuracy:.4f}")
     print(f"Total samples processed: {len(y_true)}")
