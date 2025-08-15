@@ -139,6 +139,8 @@ trainer_stats = trainer.train()
 model.save_pretrained("qwen-quantum-classifier")
 tokenizer.save_pretrained("qwen-quantum-classifier")
 
+model.save_pretrained_gguf("release/qwen", tokenizer, quantization_method = "q4_k_m")
+
 FastLanguageModel.for_inference(model)
 
 # Pad token already configured above

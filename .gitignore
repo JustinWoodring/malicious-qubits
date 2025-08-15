@@ -1,3 +1,6 @@
 outputs
 *classifier*
 *target*
+*llama.cpp*
+unsloth_compiled_cache
+_unsloth_sentencepiece_temp
