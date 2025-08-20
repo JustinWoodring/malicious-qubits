@@ -1,4 +1,4 @@
-use std::fs::{self, File};
+use std::fs::{self, File, remove_file};
 use std::io::{self, Write, BufRead, BufReader};
 use std::path::Path;
 use regex::Regex;
@@ -35,10 +35,6 @@ fn main() -> io::Result<()> {
                 };
                 
                 let escaped_content = new_content.replace("\n", "\\n");
-                if escaped_content.len() > 10000 {
-                    println!("Skipping {}: content too long", file_name);
-                    continue;
-                }
                 writeln!(output, "{{ \"messages\": [{{\"role\": \"user\", \"content\": \"Classify this program as malicious or benign: {}\"}}, {{\"role\": \"assistant\", {}}}]}}", escaped_content, malicious)?;
                 
                 println!("Assembled {} to training.jsonl", file_name);
@@ -80,10 +76,6 @@ fn main() -> io::Result<()> {
                 };
                 
                 let escaped_content = new_content.replace("\n", "\\n");
-                if escaped_content.len() > 10000 {
-                    println!("Skipping {}: content too long", file_name);
-                    continue;
-                }
                 writeln!(output, "{{ \"messages\": [{{\"role\": \"user\", \"content\": \"Classify this program as malicious or benign: {}\"}}, {{\"role\": \"assistant\", {}}}]}}", escaped_content, malicious)?;
                 
                 println!("Assembled {} to validation.jsonl", file_name);
