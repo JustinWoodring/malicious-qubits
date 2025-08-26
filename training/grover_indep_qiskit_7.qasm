@@ -1,7 +1,6 @@
-
 OPENQASM 2.0;
 include "qelib1.inc";
-qreg q[7];  // 3 for search space, 1 for oracle ancilla, 3 for diffusion
+qreg q[7];
 creg meas[3];
 
 h q[0];
@@ -11,10 +10,10 @@ h q[2];
 x q[3];
 h q[3];
 
-x q[2];  // Flip the 0-bit
-cx q[0],q[3];  // Apply CNOT for 1-bits
+x q[2];
+cx q[0],q[3];
 cx q[1],q[3];
-x q[2];  // Unflip the 0-bit
+x q[2];
 
 h q[0];
 h q[1];
@@ -37,10 +36,10 @@ h q[0];
 h q[1];
 h q[2];
 
-x q[2];  // Flip the 0-bit
-cx q[0],q[3];  // Apply CNOT for 1-bits
+x q[2];
+cx q[0],q[3];
 cx q[1],q[3];
-x q[2];  // Unflip the 0-bit
+x q[2];
 
 h q[0];
 h q[1];

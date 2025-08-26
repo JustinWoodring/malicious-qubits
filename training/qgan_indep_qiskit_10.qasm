@@ -1,7 +1,6 @@
-
 OPENQASM 2.0;
 include "qelib1.inc";
-qreg q[10];  // 4 for generator, 6 for discriminator
+qreg q[10];
 creg meas_gen[4];
 creg meas_disc[1];
 
