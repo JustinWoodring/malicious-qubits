@@ -44,7 +44,7 @@ def generate_immediate_measurement_variations(filename_prefix, count=200):
             
             if attack_type == "immediate":
                 # Pattern 1: Measurement as the very first instruction
-                measured_qubits = random.sample(range(size), random.randint(1, size//2))
+                measured_qubits = random.sample(range(size), random.randint(1, max(1, size//2)))
                 for q in measured_qubits:
                     f.write(f"measure q[{q}] -> early[{q}];\n")
                 
@@ -73,7 +73,7 @@ def generate_immediate_measurement_variations(filename_prefix, count=200):
             else:  # mixed_immediate
                 # Pattern 3: Mix immediate measurements with misleading operations
                 # Some immediate measurements
-                early_measured = random.sample(range(size), random.randint(1, size//3))
+                early_measured = random.sample(range(size), random.randint(1, max(1, size//3)))
                 for q in early_measured:
                     f.write(f"measure q[{q}] -> early[{q}];\n")
                 
@@ -88,18 +88,15 @@ def generate_immediate_measurement_variations(filename_prefix, count=200):
                         f.write(f"measure q[{q}] -> early[{q}];\n")
             
             # Add some "normal" operations afterward to disguise the attack
-            remaining_qubits = [q for q in range(size) if f"measure q[{q}]" not in open(filepath, 'r').read() if os.path.exists(filepath) else True]
-            if remaining_qubits:
-                for _ in range(random.randint(2, 5)):
-                    if remaining_qubits:
-                        q = random.choice(remaining_qubits)
-                        gate = random.choice(["h", "x", "y", "z", "rx(pi/4)", "ry(pi/4)"])
-                        if "(" in gate:
-                            gate_name, param = gate.split("(")
-                            param = param.rstrip(")")
-                            f.write(f"{gate_name}({param}) q[{q}];\n")
-                        else:
-                            f.write(f"{gate} q[{q}];\n")
+            for _ in range(random.randint(2, 5)):
+                q = random.randint(0, size-1)
+                gate = random.choice(["h", "x", "y", "z", "rx(pi/4)", "ry(pi/4)"])
+                if "(" in gate:
+                    gate_name, param = gate.split("(")
+                    param = param.rstrip(")")
+                    f.write(f"{gate_name}({param}) q[{q}];\n")
+                else:
+                    f.write(f"{gate} q[{q}];\n")
             
             # Final measurements for any remaining qubits
             for q in range(size):
@@ -220,7 +217,7 @@ def generate_trojan_attack_variations(filename_prefix, count=50):
                     f.write("z control[0];\n")
             else:  # measurement trigger
                 f.write("h control[0];\n")
-                f.write("measure control[0] -> c[{size}];\n")
+                f.write(f"measure control[0] -> c[{size}];\n")
             
             # Add some legitimate-looking initialization
             for q in range(min(size, 4)):  # Only initialize a few qubits normally
@@ -246,7 +243,7 @@ def generate_trojan_attack_variations(filename_prefix, count=50):
             
             elif trojan_payload == "immediate_measurement":
                 # Conditional immediate measurements
-                target_qubits = random.sample(range(size), random.randint(1, size//2))
+                target_qubits = random.sample(range(size), random.randint(1, max(1, size//2)))
                 for q in target_qubits:
                     # Create a controlled measurement scenario
                     f.write(f"cx control[0], q[{q}];\n")
@@ -262,7 +259,7 @@ def generate_trojan_attack_variations(filename_prefix, count=50):
                     f.write(f"swap q[{q1}], q[{q2}];\n")
                 
                 # Some conditional measurements
-                for q in random.sample(range(size), random.randint(1, size//3)):
+                for q in random.sample(range(size), random.randint(1, max(1, size//3))):
                     f.write(f"cx control[0], q[{q}];\n")
                     if trigger_type != "measurement":
                         f.write(f"measure q[{q}] -> c[{q}];\n")
@@ -288,15 +285,15 @@ def main():
     print(f"Generating malicious QASM variations in directory: {OUTPUT_DIR}")
     
     # Generate immediate measurement attack variations
-    immediate_files = generate_immediate_measurement_variations("malicious_immediate_measurement", 175)
+    immediate_files = generate_immediate_measurement_variations("malicious_immediate_measurement", 200)
     print(f"Generated {len(immediate_files)} immediate measurement attack variations")
     
     # Generate qubit shuttling attack variations
-    shuttling_files = generate_qubit_shuttling_variations("malicious_qubit_shuttling", 175)
+    shuttling_files = generate_qubit_shuttling_variations("malicious_qubit_shuttling", 200)
     print(f"Generated {len(shuttling_files)} qubit shuttling attack variations")
     
     # Generate trojan attack variations
-    trojan_files = generate_trojan_attack_variations("malicious_trojan_attack", 50)
+    trojan_files = generate_trojan_attack_variations("malicious_trojan_attack", 100)
     print(f"Generated {len(trojan_files)} trojan attack variations")
     
     total_files = immediate_files + shuttling_files + trojan_files
