@@ -35,7 +35,7 @@ MODELS = {
         "output_prefix": "mistral"
     },
     "seedcoder": {
-        "name": "Seed-Coder-8B-Instruct-unsloth-bnb-4bit",
+        "name": "unsloth/Seed-Coder-8B-Instruct-unsloth-bnb-4bit",
         "chat_template": "seedcoder",
         "output_prefix": "seedcoder"
     }
