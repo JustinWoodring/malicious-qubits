@@ -34,7 +34,13 @@ fn main() -> io::Result<()> {
                     r#""content": "benign""#
                 };
                 
-                let escaped_content = new_content.replace("\n", "\\n");
+                let mut escaped_content = new_content.replace("\n", "\\n");
+                
+                // Truncate to 8192 characters like train.py validation preprocessing
+                if escaped_content.len() > 8192 {
+                    escaped_content = escaped_content[..8192].to_string() + " [TRUNCATED]";
+                }
+                
                 writeln!(output, "{{ \"messages\": [{{\"role\": \"user\", \"content\": \"Classify this program as malicious or benign: {}\"}}, {{\"role\": \"assistant\", {}}}]}}", escaped_content, malicious)?;
                 
                 println!("Assembled {} to training.jsonl", file_name);
