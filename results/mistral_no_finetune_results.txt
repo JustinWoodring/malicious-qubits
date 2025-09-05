@@ -1,0 +1,344 @@
+Mistral mistral-7b-instruct-v0.3-bnb-4bit (No Fine-tune) Quantum Circuit Classification Results
+Generated on: 2025-09-05 02:10:50
+============================================================
+
+MODEL INFORMATION:
+Model: Mistral mistral-7b-instruct-v0.3-bnb-4bit (No Fine-tune)
+Framework: Unsloth
+Task: Binary classification (malicious/benign quantum circuits)
+GPU Count: 2
+GPU Memory: 47.5GB
+Processing Time: 938.01s (0.32 samples/sec)
+Dynamic Batch Sizing: Enabled
+
+OVERALL METRICS:
+Accuracy: 0.5333
+Precision: 0.4974
+Recall: 0.5333
+F1-Score: 0.5116
+
+CONFUSION MATRIX:
+                Predicted
+Actual    Benign  Malicious
+Benign       142         56
+Malicious     84         18
+
+DETAILED CLASSIFICATION REPORT:
+              precision    recall  f1-score   support
+
+      benign       0.63      0.72      0.67       198
+   malicious       0.24      0.18      0.20       102
+
+    accuracy                           0.53       300
+   macro avg       0.44      0.45      0.44       300
+weighted avg       0.50      0.53      0.51       300
+
+
+VALIDATION STATISTICS:
+Total validation samples: 300
+Correct predictions: 160
+Incorrect predictions: 140
+
+DETAILED PREDICTIONS:
+Filename                       True       Predicted  Correct  Raw Prediction
+--------------------------------------------------------------------------------
+malicious_qubit_shuttling_20_109.qasm malicious  benign     ✗        This program is benign. It is
+qft_indep_qiskit_67.qasm       benign     benign     ✓        This program is benign. It is
+qaoa_indep_qiskit_7.qasm       benign     benign     ✓        This program is a Quantum Assembly Language
+malicious_immediate_measurement_15_97.qasm malicious  malicious  ✓        This program is not malicious. It
+qftentangled_indep_qiskit_64.qasm benign     benign     ✓        This program is benign. It is
+malicious_trojan_attack_27_37.qasm malicious  malicious  ✓        This program is not malicious. It
+malicious_qubit_shuttling_2_199.qasm malicious  benign     ✗        This program is benign. It is
+malicious_immediate_measurement_10_91.qasm malicious  benign     ✗        This program is written in Qiskit
+qft_indep_qiskit_75.qasm       benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_6_84.qasm malicious  benign     ✗        This program is written in Qiskit
+qftentangled_indep_qiskit_73.qasm benign     benign     ✓        This program is benign. It is
+qaoa_indep_qiskit_8.qasm       benign     malicious  ✗        This program is not malicious. It
+qnn_indep_qiskit_36.qasm       benign     benign     ✓        This program is benign. It is
+graphstate_indep_qiskit_55.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_qubit_shuttling_27_151.qasm malicious  benign     ✗        This program is benign. It is
+malicious_trojan_attack_5_12.qasm malicious  malicious  ✓        This program is not malicious. It
+malicious_qubit_shuttling_14_191.qasm malicious  benign     ✗        This program is benign. It is
+malicious_trojan_attack_20_0.qasm malicious  benign     ✗        This program is a quantum circuit written in
+qpeinexact_indep_qiskit_15.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_trojan_attack_24_45.qasm malicious  benign     ✗        This program is benign. It is
+ghz_indep_qiskit_57.qasm       benign     benign     ✓        This program is benign. It is
+pricingcall_indep_qiskit_11.qasm benign     malicious  ✗        This program is not malicious. It
+portfoliovqe_indep_qiskit_11.qasm benign     benign     ✓        This program is a quantum circuit written in
+qftentangled_indep_qiskit_42.qasm benign     benign     ✓        This program is benign. It is
+qft_indep_qiskit_23.qasm       benign     benign     ✓        This program is benign. It is
+qftentangled_indep_qiskit_32.qasm benign     benign     ✓        This program is benign. It is
+malicious_trojan_attack_7_95.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_trojan_attack_5_65.qasm malicious  benign     ✗        This program is a quantum circuit written in
+qft_indep_qiskit_41.qasm       benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_16_24.qasm malicious  malicious  ✓        This program is not inherently malicious
+malicious_qubit_shuttling_22_17.qasm malicious  benign     ✗        This program is benign. It is
+malicious_qubit_shuttling_15_9.qasm malicious  benign     ✗        This program is benign. It is
+wstate_indep_qiskit_32.qasm    benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_19_19.qasm malicious  malicious  ✓        This program is not inherently malicious
+malicious_trojan_attack_11_54.qasm malicious  benign     ✗        This program is written in Qiskit
+ghz_indep_qiskit_47.qasm       benign     benign     ✓        This program is a Quantum Assembly Language
+dj_indep_qiskit_83.qasm        benign     benign     ✓        This program is benign. It is
+ae_indep_qiskit_56.qasm        benign     malicious  ✗        This program is not malicious. It
+qpeinexact_indep_qiskit_50.qasm benign     benign     ✓        This program is benign. It is
+wstate_indep_qiskit_34.qasm    benign     benign     ✓        This program is benign. It is
+qpeexact_indep_qiskit_37.qasm  benign     benign     ✓        This program is benign. It is
+wstate_indep_qiskit_80.qasm    benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_19_133.qasm malicious  benign     ✗        This program is benign. It is
+qaoa_indep_qiskit_9.qasm       benign     malicious  ✗        This program is not malicious. It
+qft_indep_qiskit_94.qasm       benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_13_195.qasm malicious  benign     ✗        This program is benign. It is
+qpeexact_indep_qiskit_50.qasm  benign     malicious  ✗        This program is not malicious. It
+grover-noancilla_indep_qiskit_10.qasm benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_2_163.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_immediate_measurement_6_90.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_trojan_attack_9_64.qasm malicious  benign     ✗        This program is a quantum circuit written in
+qft_indep_qiskit_15.qasm       benign     benign     ✓        This program is benign. It is
+dj_indep_qiskit_34.qasm        benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_5_11.qasm malicious  benign     ✗        This program is benign. It is
+grover-noancilla_indep_qiskit_7.qasm benign     benign     ✓        This program is a quantum circuit written in
+ae_indep_qiskit_89.qasm        benign     malicious  ✗        This program is not malicious. It
+pricingput_indep_qiskit_19.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_qubit_shuttling_22_4.qasm malicious  benign     ✗        This program is benign. It is
+graphstate_indep_qiskit_43.qasm benign     benign     ✓        This program is written in Qiskit
+qpeinexact_indep_qiskit_57.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_immediate_measurement_10_162.qasm malicious  benign     ✗        This program is benign. It is
+malicious_qubit_shuttling_2_192.qasm malicious  benign     ✗        This program is benign. It is
+qpeexact_indep_qiskit_5.qasm   benign     benign     ✓        This program is a Quantum Assembly Language
+qpeexact_indep_qiskit_43.qasm  benign     benign     ✓        This program is benign. It is
+graphstate_indep_qiskit_12.qasm benign     benign     ✓        This program is benign. It is
+graphstate_indep_qiskit_36.qasm benign     benign     ✓        This program is benign. It is
+wstate_indep_qiskit_99.qasm    benign     benign     ✓        This program is benign. It is
+qpeinexact_indep_qiskit_67.qasm benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_30_48.qasm malicious  benign     ✗        This program is written in Qiskit
+qftentangled_indep_qiskit_3.qasm benign     malicious  ✗        This program is not malicious. It
+qnn_indep_qiskit_75.qasm       benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_3_182.qasm malicious  benign     ✗        This program is benign. It is
+malicious_qubit_shuttling_15_78.qasm malicious  benign     ✗        This program is benign. It is
+dj_indep_qiskit_56.qasm        benign     benign     ✓        This program is benign. It is
+dj_indep_qiskit_68.qasm        benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_6_109.qasm malicious  malicious  ✓        This program is not malicious. It
+malicious_immediate_measurement_3_167.qasm malicious  benign     ✗        This program is a quantum circuit written in
+ghz_indep_qiskit_19.qasm       benign     benign     ✓        This program is benign. It is
+malicious_trojan_attack_12_69.qasm malicious  benign     ✗        This program is a quantum circuit written in
+ghz_indep_qiskit_76.qasm       benign     malicious  ✗        This program is not inherently malicious
+qwalk-noancilla_indep_qiskit_3.qasm benign     benign     ✓        This program is benign. It is
+ghz_indep_qiskit_56.qasm       benign     benign     ✓        This program is benign. It is
+qpeexact_indep_qiskit_64.qasm  benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_23_110.qasm malicious  malicious  ✓        This program is not inherently malicious
+malicious_trojan_attack_26_87.qasm malicious  benign     ✗        This program is written in Qiskit
+qftentangled_indep_qiskit_67.qasm benign     benign     ✓        This program is benign. It is
+qftentangled_indep_qiskit_26.qasm benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_15_185.qasm malicious  benign     ✗        This program is benign. It is
+pricingput_indep_qiskit_9.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_immediate_measurement_28_136.qasm malicious  malicious  ✓        This program is not malicious. It
+qpeexact_indep_qiskit_20.qasm  benign     malicious  ✗        This program is not malicious. It
+dj_indep_qiskit_8.qasm         benign     benign     ✓        This program is benign. It is
+grover-v-chain_indep_qiskit_19.qasm benign     benign     ✓        This program is benign. It is
+qpeexact_indep_qiskit_79.qasm  benign     malicious  ✗        This program is not malicious. It
+dj_indep_qiskit_52.qasm        benign     benign     ✓        This program is benign. It is
+graphstate_indep_qiskit_44.qasm benign     benign     ✓        This program is written in Qiskit
+qpeexact_indep_qiskit_91.qasm  benign     benign     ✓        This program is benign. It is
+qpeexact_indep_qiskit_59.qasm  benign     benign     ✓        This program is benign. It is
+graphstate_indep_qiskit_89.qasm benign     benign     ✓        This program is a quantum circuit written in
+qpeexact_indep_qiskit_27.qasm  benign     malicious  ✗        This program is not malicious. It
+malicious_qubit_shuttling_4_102.qasm malicious  benign     ✗        This program is benign. It is
+ae_indep_qiskit_4.qasm         benign     benign     ✓        This program is written in Qiskit
+malicious_immediate_measurement_10_197.qasm malicious  benign     ✗        This program is benign. It is
+dj_indep_qiskit_28.qasm        benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_25_108.qasm malicious  benign     ✗        This program is benign. It is
+dj_indep_qiskit_31.qasm        benign     benign     ✓        This program is benign. It is
+graphstate_indep_qiskit_52.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_immediate_measurement_8_138.qasm malicious  benign     ✗        This program is benign. It is
+qpeinexact_indep_qiskit_90.qasm benign     benign     ✓        This program is benign. It is
+teleportation_indep_qiskit_15.qasm benign     benign     ✓        This program is a Quantum Assembly Language
+wstate_indep_qiskit_84.qasm    benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_23_147.qasm malicious  benign     ✗        Based on the provided OpenQASM
+qftentangled_indep_qiskit_46.qasm benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_22_168.qasm malicious  malicious  ✓        This program is not inherently malicious
+qpeinexact_indep_qiskit_100.qasm benign     benign     ✓        This program is benign. It is
+malicious_trojan_attack_4_80.qasm malicious  benign     ✗        This program is benign. It is
+malicious_qubit_shuttling_13_197.qasm malicious  benign     ✗        This program is benign. It is
+malicious_qubit_shuttling_10_158.qasm malicious  benign     ✗        This program is benign. It is
+malicious_immediate_measurement_24_195.qasm malicious  benign     ✗        This program is written in Qiskit
+portfolioqaoa_indep_qiskit_12.qasm benign     benign     ✓        This program is benign. It is
+qft_indep_qiskit_83.qasm       benign     benign     ✓        This program is classified as benign.
+qftentangled_indep_qiskit_21.qasm benign     benign     ✓        This program is benign. It is
+dj_indep_qiskit_59.qasm        benign     benign     ✓        This program is benign. It is
+qnn_indep_qiskit_28.qasm       benign     benign     ✓        This program is benign. It is
+qpeexact_indep_qiskit_31.qasm  benign     malicious  ✗        This program is not malicious. It
+ae_indep_qiskit_33.qasm        benign     malicious  ✗        This program is not malicious. It
+ghz_indep_qiskit_82.qasm       benign     benign     ✓        This program is written in Qiskit
+ae_indep_qiskit_84.qasm        benign     malicious  ✗        This program is not malicious. It
+qftentangled_indep_qiskit_60.qasm benign     benign     ✓        This program is benign. It is
+pricingput_indep_qiskit_11.qasm benign     malicious  ✗        This program is not malicious. It
+qpeexact_indep_qiskit_23.qasm  benign     malicious  ✗        This program is not malicious. It
+qft_indep_qiskit_30.qasm       benign     benign     ✓        This program is benign. It is
+qnn_indep_qiskit_73.qasm       benign     benign     ✓        This program is benign. It is
+qnn_indep_qiskit_68.qasm       benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_13_30.qasm malicious  benign     ✗        This program is written in Qiskit
+graphstate_indep_qiskit_3.qasm benign     benign     ✓        This program is benign. It is
+qftentangled_indep_qiskit_61.qasm benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_28_194.qasm malicious  malicious  ✓        This program is not malicious. It
+dj_indep_qiskit_67.qasm        benign     benign     ✓        This program is benign. It is
+qpeinexact_indep_qiskit_71.qasm benign     benign     ✓        This program is benign. It is
+malicious_trojan_attack_3_2.qasm malicious  benign     ✗        This program is a quantum circuit written in
+groundstate_large_indep_qiskit_14.qasm benign     malicious  ✗        This program is not malicious. It
+graphstate_indep_qiskit_63.qasm benign     benign     ✓        This program is written in Qiskit
+qnn_indep_qiskit_10.qasm       benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_14_0.qasm malicious  benign     ✗        This program is benign. It is
+qnn_indep_qiskit_32.qasm       benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_5_155.qasm malicious  benign     ✗        This program is benign. It is
+malicious_immediate_measurement_8_169.qasm malicious  benign     ✗        This program is benign. It is
+wstate_indep_qiskit_30.qasm    benign     benign     ✓        This program is benign. It is
+wstate_indep_qiskit_27.qasm    benign     malicious  ✗        This program is not malicious. It
+malicious_trojan_attack_14_92.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_immediate_measurement_9_38.qasm malicious  benign     ✗        This program is benign. It is
+malicious_immediate_measurement_6_63.qasm malicious  benign     ✗        This program is benign. It is
+graphstate_indep_qiskit_11.qasm benign     benign     ✓        This program is benign. It is
+ae_indep_qiskit_54.qasm        benign     malicious  ✗        This program is not malicious. It
+malicious_trojan_attack_17_59.qasm malicious  malicious  ✓        This program is not inherently malicious
+ae_indep_qiskit_11.qasm        benign     malicious  ✗        This program is not malicious. It
+malicious_qubit_shuttling_3_140.qasm malicious  benign     ✗        This program is benign. It is
+qnn_indep_qiskit_48.qasm       benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_12_119.qasm malicious  benign     ✗        This program is benign. It is
+vqe_indep_qiskit_11.qasm       benign     malicious  ✗        This program is not malicious. It
+hhl_indep_qiskit_13.qasm       benign     malicious  ✗        This program is not malicious. It
+wstate_indep_qiskit_39.qasm    benign     benign     ✓        This program is benign. It is
+grover-v-chain_indep_qiskit_9.qasm benign     benign     ✓        This program is a quantum circuit written in
+ae_indep_qiskit_32.qasm        benign     malicious  ✗        This program is not malicious. It
+qpeinexact_indep_qiskit_77.qasm benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_11_146.qasm malicious  benign     ✗        This program is benign. It is
+malicious_immediate_measurement_13_33.qasm malicious  malicious  ✓        This program is not malicious. It
+malicious_immediate_measurement_13_121.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_immediate_measurement_13_143.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_qubit_shuttling_5_121.qasm malicious  benign     ✗        This program is benign. It is
+malicious_qubit_shuttling_13_193.qasm malicious  benign     ✗        This program is written in Qiskit
+qpeinexact_indep_qiskit_96.qasm benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_21_95.qasm malicious  benign     ✗        This program is a quantum circuit written in
+ae_indep_qiskit_59.qasm        benign     malicious  ✗        This program is not malicious. It
+dj_indep_qiskit_76.qasm        benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_22_5.qasm malicious  malicious  ✓        This program is not inherently malicious
+qpeinexact_indep_qiskit_29.qasm benign     benign     ✓        This program is benign. It is
+qwalk-v-chain_indep_qiskit_3.qasm benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_21_5.qasm malicious  benign     ✗        This program is benign. It is
+wstate_indep_qiskit_55.qasm    benign     malicious  ✗        This program is not malicious. It
+qnn_indep_qiskit_3.qasm        benign     malicious  ✗        This program is not malicious. It
+ae_indep_qiskit_66.qasm        benign     malicious  ✗        This program is not malicious. It
+malicious_immediate_measurement_2_147.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_trojan_attack_22_76.qasm malicious  malicious  ✓        This program is not malicious. It
+qft_indep_qiskit_11.qasm       benign     benign     ✓        This program is benign. It is
+portfolio_indep_qiskit_15.qasm benign     benign     ✓        This program is benign. It is
+ghz_indep_qiskit_51.qasm       benign     benign     ✓        This program is benign. It is
+qft_indep_qiskit_98.qasm       benign     benign     ✓        This program is benign. It is
+dj_indep_qiskit_18.qasm        benign     malicious  ✗        This program is not malicious. It
+qpeinexact_indep_qiskit_28.qasm benign     malicious  ✗        This program is not malicious. It
+wstate_indep_qiskit_82.qasm    benign     benign     ✓        This program is benign. It is
+wstate_indep_qiskit_70.qasm    benign     benign     ✓        This program is benign. It is
+qwalk-noancilla_indep_qiskit_14.qasm benign     benign     ✓        This program is benign. It is
+dj_indep_qiskit_64.qasm        benign     benign     ✓        This program is benign. It is
+qft_indep_qiskit_35.qasm       benign     benign     ✓        This program is benign. It is
+qft_indep_qiskit_36.qasm       benign     benign     ✓        This program is benign. It is
+wstate_indep_qiskit_67.qasm    benign     benign     ✓        This program is benign. It is
+wstate_indep_qiskit_3.qasm     benign     benign     ✓        This program is written in Qiskit
+ghz_indep_qiskit_36.qasm       benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_11_22.qasm malicious  malicious  ✓        This program is not malicious. It
+malicious_qubit_shuttling_3_59.qasm malicious  benign     ✗        This program is benign. It is
+vqe_indep_qiskit_8.qasm        benign     malicious  ✗        This program is not malicious. It
+dj_indep_qiskit_22.qasm        benign     malicious  ✗        This program is not malicious. It
+ae_indep_qiskit_80.qasm        benign     malicious  ✗        This program is not malicious. It
+malicious_qubit_shuttling_2_180.qasm malicious  benign     ✗        This program is benign. It is
+dj_indep_qiskit_37.qasm        benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_15_38.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_immediate_measurement_10_7.qasm malicious  benign     ✗        This program is benign. It is
+qpeexact_indep_qiskit_51.qasm  benign     benign     ✓        This program is benign. It is
+ghz_indep_qiskit_66.qasm       benign     benign     ✓        This program is written in Qiskit
+malicious_qubit_shuttling_6_178.qasm malicious  benign     ✗        This program is benign. It is
+grover-v-chain_indep_qiskit_5.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_trojan_attack_17_32.qasm malicious  benign     ✗        This program is a quantum circuit written in
+qpeexact_indep_qiskit_13.qasm  benign     benign     ✓        This program is a quantum circuit written in
+malicious_qubit_shuttling_24_170.qasm malicious  benign     ✗        This program is benign. It is
+portfoliovqe_indep_qiskit_12.qasm benign     benign     ✓        This program is written in OpenQAS
+groundstate_medium_indep_qiskit_12.qasm benign     benign     ✓        This program is a quantum circuit written in
+malicious_immediate_measurement_2_151.qasm malicious  benign     ✗        This program is benign. It is
+dj_indep_qiskit_74.qasm        benign     benign     ✓        This program is benign. It is
+ae_indep_qiskit_16.qasm        benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_22_142.qasm malicious  benign     ✗        This program is written in Qiskit
+qftentangled_indep_qiskit_62.qasm benign     benign     ✓        This program is benign. It is
+graphstate_indep_qiskit_61.qasm benign     benign     ✓        This program is written in OpenQAS
+malicious_qubit_shuttling_21_99.qasm malicious  benign     ✗        This program is benign. It is
+ghz_indep_qiskit_65.qasm       benign     benign     ✓        This program is benign. It is
+qpeinexact_indep_qiskit_55.qasm benign     malicious  ✗        This program is not malicious. It
+ghz_indep_qiskit_71.qasm       benign     benign     ✓        This program is benign. It is
+qnn_indep_qiskit_65.qasm       benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_20_48.qasm malicious  benign     ✗        This program is benign. It is
+malicious_immediate_measurement_3_74.qasm malicious  benign     ✗        This program is benign. It is
+ghz_indep_qiskit_32.qasm       benign     benign     ✓        This program is benign. It is
+malicious_trojan_attack_12_99.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_qubit_shuttling_15_75.qasm malicious  benign     ✗        This program is written in QASM
+ghz_indep_qiskit_16.qasm       benign     benign     ✓        This program is written in Qiskit
+malicious_qubit_shuttling_19_56.qasm malicious  benign     ✗        This program is a quantum circuit written in
+qnn_indep_qiskit_98.qasm       benign     benign     ✓        This program is benign. It is
+qftentangled_indep_qiskit_14.qasm benign     malicious  ✗        This program is not malicious. It
+qft_indep_qiskit_48.qasm       benign     benign     ✓        This program is benign. It is
+wstate_indep_qiskit_18.qasm    benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_7_81.qasm malicious  benign     ✗        This program is benign. It is
+qnn_indep_qiskit_15.qasm       benign     benign     ✓        This program is benign. It is
+qpeexact_indep_qiskit_75.qasm  benign     benign     ✓        This program is benign. It is
+pricingcall_indep_qiskit_15.qasm benign     malicious  ✗        This program is not malicious. It
+qpeexact_indep_qiskit_63.qasm  benign     malicious  ✗        This program is not malicious. It
+qnn_indep_qiskit_29.qasm       benign     benign     ✓        This program is benign. It is
+qpeexact_indep_qiskit_66.qasm  benign     malicious  ✗        This program is not malicious. It
+ghz_indep_qiskit_78.qasm       benign     benign     ✓        This program is benign. It is
+qpeinexact_indep_qiskit_69.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_immediate_measurement_20_1.qasm malicious  malicious  ✓        This program is not malicious. It
+graphstate_indep_qiskit_80.qasm benign     benign     ✓        This program is a quantum circuit written in
+grover-noancilla_indep_qiskit_2.qasm benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_23_181.qasm malicious  malicious  ✓        This program is not malicious. It
+qftentangled_indep_qiskit_41.qasm benign     benign     ✓        This program is benign. It is
+qpeexact_indep_qiskit_73.qasm  benign     malicious  ✗        This program is not malicious. It
+qpeinexact_indep_qiskit_31.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_qubit_shuttling_30_100.qasm malicious  benign     ✗        This program is written in Qiskit
+wstate_indep_qiskit_5.qasm     benign     benign     ✓        This program is benign. It is
+graphstate_indep_qiskit_21.qasm benign     benign     ✓        This program is benign. It is
+ghz_indep_qiskit_91.qasm       benign     benign     ✓        This program is benign. It is
+qnn_indep_qiskit_85.qasm       benign     benign     ✓        This program is benign. It is
+qpeinexact_indep_qiskit_25.qasm benign     benign     ✓        This program is written in Qiskit
+malicious_trojan_attack_3_60.qasm malicious  benign     ✗        This program is benign. It is
+wstate_indep_qiskit_79.qasm    benign     malicious  ✗        This program is not malicious. It
+dj_indep_qiskit_58.qasm        benign     benign     ✓        This program is benign. It is
+dj_indep_qiskit_11.qasm        benign     malicious  ✗        This program is not malicious. It
+qpeinexact_indep_qiskit_9.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_immediate_measurement_25_25.qasm malicious  malicious  ✓        This program is not malicious. It
+qft_indep_qiskit_19.qasm       benign     benign     ✓        This program is benign. It is
+dj_indep_qiskit_29.qasm        benign     benign     ✓        This program is benign. It is
+qnn_indep_qiskit_95.qasm       benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_13_194.qasm malicious  benign     ✗        This program is benign. It is
+malicious_qubit_shuttling_9_168.qasm malicious  benign     ✗        This program is benign. It is
+ae_indep_qiskit_20.qasm        benign     benign     ✓        This program is a quantum circuit written in
+malicious_qubit_shuttling_17_55.qasm malicious  benign     ✗        This program is written in Qiskit
+malicious_qubit_shuttling_7_114.qasm malicious  benign     ✗        This program is benign. It is
+qftentangled_indep_qiskit_85.qasm benign     benign     ✓        This program is benign. It is
+qwalk-v-chain_indep_qiskit_17.qasm benign     malicious  ✗        This program is not malicious. It
+dj_indep_qiskit_53.qasm        benign     benign     ✓        This program is benign. It is
+qftentangled_indep_qiskit_84.qasm benign     benign     ✓        This program is benign. It is
+pricingcall_indep_qiskit_13.qasm benign     malicious  ✗        This program is not malicious. It
+graphstate_indep_qiskit_78.qasm benign     malicious  ✗        This program is not malicious. It
+vqe_indep_qiskit_5.qasm        benign     malicious  ✗        This program is not malicious. It
+malicious_immediate_measurement_16_86.qasm malicious  benign     ✗        This program is a quantum circuit written in
+qft_indep_qiskit_50.qasm       benign     benign     ✓        This program is benign. It is
+malicious_trojan_attack_17_56.qasm malicious  benign     ✗        This program is written in Qiskit
+wstate_indep_qiskit_96.qasm    benign     benign     ✓        This program is benign. It is
+malicious_immediate_measurement_18_11.qasm malicious  benign     ✗        This program is written in Qiskit
+wstate_indep_qiskit_88.qasm    benign     benign     ✓        This program is benign. It is
+graphstate_indep_qiskit_93.qasm benign     malicious  ✗        This program is not malicious. It
+malicious_immediate_measurement_12_77.qasm malicious  benign     ✗        This program is written in Qiskit
+graphstate_indep_qiskit_46.qasm benign     malicious  ✗        This program is not malicious. It
+qft_indep_qiskit_44.qasm       benign     benign     ✓        This program is benign. It is
+qftentangled_indep_qiskit_77.qasm benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_9_67.qasm malicious  benign     ✗        This program is benign. It is
+dj_indep_qiskit_46.qasm        benign     benign     ✓        This program is benign. It is
+qft_indep_qiskit_21.qasm       benign     benign     ✓        This program is benign. It is
+wstate_indep_qiskit_20.qasm    benign     benign     ✓        This program is benign. It is
+malicious_qubit_shuttling_26_65.qasm malicious  benign     ✗        Based on the provided OpenQASM
+qft_indep_qiskit_69.qasm       benign     benign     ✓        This program is benign. It is

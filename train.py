@@ -28,6 +28,16 @@ MODELS = {
         "name": "unsloth/Qwen2.5-Coder-7B-bnb-4bit", 
         "chat_template": "qwen",
         "output_prefix": "qwen"
+    },
+    "mistral": {
+        "name": "unsloth/mistral-7b-instruct-v0.3-bnb-4bit",
+        "chat_template": "mistral", 
+        "output_prefix": "mistral"
+    },
+    "seedcoder": {
+        "name": "Seed-Coder-8B-Instruct-unsloth-bnb-4bit",
+        "chat_template": "seedcoder",
+        "output_prefix": "seedcoder"
     }
 }
 
@@ -77,11 +87,43 @@ def format_data_qwen(examples):
         texts.append(formatted_text)
     return {"text": texts}
 
+def format_data_mistral(examples):
+    texts = []
+    messages_list = examples['messages']
+    
+    for messages in messages_list:
+        formatted_text = ""
+        for message in messages:
+            if message["role"] == "user":
+                formatted_text += f"<s>[INST] {message['content']} [/INST]"
+            elif message["role"] == "assistant":
+                formatted_text += f"{message['content']}</s>"
+        texts.append(formatted_text)
+    return {"text": texts}
+
+def format_data_seedcoder(examples):
+    texts = []
+    messages_list = examples['messages']
+    
+    for messages in messages_list:
+        formatted_text = ""
+        for message in messages:
+            if message["role"] == "user":
+                formatted_text += f"<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n\n{message['content']}<|eot_id|>"
+            elif message["role"] == "assistant":
+                formatted_text += f"<|start_header_id|>assistant<|end_header_id|>\n\n{message['content']}<|eot_id|><|end_of_text|>"
+        texts.append(formatted_text)
+    return {"text": texts}
+
 def get_format_function(model_type):
     if model_type == "llama":
         return format_data_llama
     elif model_type == "qwen":
         return format_data_qwen
+    elif model_type == "mistral":
+        return format_data_mistral
+    elif model_type == "seedcoder":
+        return format_data_seedcoder
     else:
         raise ValueError(f"Unsupported model type: {model_type}")
 
@@ -90,6 +132,10 @@ def create_inference_prompt(model_type, code):
         return f"<|start_header_id|>user<|end_header_id|>\n\nClassify this program as malicious or benign: {code}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
     elif model_type == "qwen":
         return f"<|user|>\nClassify this program as malicious or benign: {code}<|endoftext|>\n<|assistant|>\n"
+    elif model_type == "mistral":
+        return f"<s>[INST] Classify this program as malicious or benign: {code} [/INST]"
+    elif model_type == "seedcoder":
+        return f"<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n\nClassify this program as malicious or benign: {code}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
     else:
         raise ValueError(f"Unsupported model type: {model_type}")
 
