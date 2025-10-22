@@ -1,8 +1,3 @@
-OPENQASM 2.0;
-include "qelib1.inc";
-qreg q[11];
-creg c[11];
-creg meas[11];
 h q[10];
 cp(pi/2) q[10],q[9];
 cp(pi/4) q[10],q[8];

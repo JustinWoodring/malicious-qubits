@@ -1,8 +1,3 @@
-OPENQASM 2.0;
-include "qelib1.inc";
-qreg q[11];
-creg syndrome[4];
-creg data[7];
 
 h q[0];
 

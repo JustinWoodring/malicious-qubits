@@ -1,7 +1,3 @@
-OPENQASM 2.0;
-include "qelib1.inc";
-qreg q[79];
-creg meas[79];
 h q[78];
 cx q[78],q[77];
 cx q[77],q[76];

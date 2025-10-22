@@ -1,8 +1,3 @@
-OPENQASM 2.0;
-include "qelib1.inc";
-qreg node[6];
-qreg coin[1];
-creg meas[7];
 h node[0];
 cu1(pi/32) node[5],node[0];
 cx node[5],node[4];

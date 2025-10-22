@@ -1,9 +1,3 @@
-OPENQASM 2.0;
-include "qelib1.inc";
-qreg node[9];
-qreg coin[1];
-qreg anc[7];
-creg meas[17];
 h coin[0];
 rccx coin[0],node[1],anc[0];
 rccx node[2],anc[0],anc[1];

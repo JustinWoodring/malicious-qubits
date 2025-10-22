@@ -1,8 +1,3 @@
-OPENQASM 2.0;
-include "qelib1.inc";
-qreg q[25];
-creg c[25];
-creg early[25];
 y q[0];
 y q[0];
 measure q[0] -> early[0];

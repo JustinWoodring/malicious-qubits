@@ -1,0 +1,164 @@
+seedcoder Chunked Testing Results
+Generated on: 2025-10-21 21:41:08
+============================================================
+
+MODEL INFORMATION:
+Model Path: seedcoder-quantum-classifier/
+Model Type: seedcoder
+Testing Method: Full sample chunking (4096 tokens per chunk)
+Classification Logic: Sample malicious if ANY chunk is malicious
+
+OVERALL METRICS:
+Accuracy: 0.5583
+Precision: 0.6632
+Recall: 0.5583
+F1-Score: 0.5728
+
+CONFUSION MATRIX:
+                Predicted
+Actual    Benign  Malicious
+Benign        41         42
+Malicious     11         26
+
+DETAILED CLASSIFICATION REPORT:
+              precision    recall  f1-score   support
+
+      benign       0.79      0.49      0.61        83
+   malicious       0.38      0.70      0.50        37
+
+    accuracy                           0.56       120
+   macro avg       0.59      0.60      0.55       120
+weighted avg       0.66      0.56      0.57       120
+
+
+TESTING STATISTICS:
+Total test samples: 120
+Correct predictions: 67
+Incorrect predictions: 53
+Total chunks processed: 839
+Total malicious chunks found: 645
+Malicious chunk ratio: 0.7688
+
+DETAILED RESULTS:
+Filename                                 True       Predicted  Correct  Mal/Total Chunks Chunk Ratio 
+--------------------------------------------------------------------------------------------------------------
+qnn_indep_qiskit_61.qasm                 benign     malicious  ✗        40/45            0.8889      
+malicious_qubit_shuttling_11_39.qasm     malicious  malicious  ✓        2/2             1.0000      
+qftentangled_indep_qiskit_23.qasm        benign     benign     ✓        0/2             0.0000      
+ae_indep_qiskit_99.qasm                  benign     malicious  ✗        21/26            0.8077      
+qnn_indep_qiskit_37.qasm                 benign     malicious  ✗        14/17            0.8235      
+qpeinexact_indep_qiskit_62.qasm          benign     malicious  ✗        10/11            0.9091      
+ghz_indep_qiskit_13.qasm                 benign     benign     ✓        0/1             0.0000      
+ae_indep_qiskit_5.qasm                   benign     benign     ✓        0/1             0.0000      
+qnn_indep_qiskit_55.qasm                 benign     malicious  ✗        34/37            0.9189      
+dj_indep_qiskit_84.qasm                  benign     malicious  ✗        1/2             0.5000      
+graphstate_indep_qiskit_20.qasm          benign     benign     ✓        0/1             0.0000      
+malicious_qubit_shuttling_24_108.qasm    malicious  benign     ✗        0/1             0.0000      
+graphstate_indep_qiskit_16.qasm          benign     benign     ✓        0/1             0.0000      
+malicious_immediate_measurement_21_51.qasm malicious  malicious  ✓        1/1             1.0000      
+malicious_trojan_attack_3_90.qasm        malicious  malicious  ✓        1/1             1.0000      
+qftentangled_indep_qiskit_28.qasm        benign     malicious  ✗        1/3             0.3333      
+qftentangled_indep_qiskit_33.qasm        benign     malicious  ✗        1/3             0.3333      
+qnn_indep_qiskit_30.qasm                 benign     malicious  ✗        10/11            0.9091      
+qpeinexact_indep_qiskit_14.qasm          benign     benign     ✓        0/1             0.0000      
+qnn_indep_qiskit_72.qasm                 benign     malicious  ✗        60/63            0.9524      
+malicious_qubit_shuttling_12_8.qasm      malicious  benign     ✗        0/1             0.0000      
+qpeexact_indep_qiskit_98.qasm            benign     malicious  ✗        16/24            0.6667      
+qnn_indep_qiskit_50.qasm                 benign     malicious  ✗        27/31            0.8710      
+qnn_indep_qiskit_79.qasm                 benign     malicious  ✗        71/76            0.9342      
+qft_indep_qiskit_58.qasm                 benign     malicious  ✗        7/9             0.7778      
+malicious_immediate_measurement_12_115.qasm malicious  malicious  ✓        1/1             1.0000      
+qft_indep_qiskit_84.qasm                 benign     malicious  ✗        16/18            0.8889      
+qpeexact_indep_qiskit_92.qasm            benign     malicious  ✗        17/22            0.7727      
+portfolioqaoa_indep_qiskit_10.qasm       benign     malicious  ✗        1/2             0.5000      
+qnn_indep_qiskit_8.qasm                  benign     benign     ✓        0/1             0.0000      
+qpeinexact_indep_qiskit_39.qasm          benign     malicious  ✗        4/5             0.8000      
+qft_indep_qiskit_73.qasm                 benign     malicious  ✗        10/14            0.7143      
+ghz_indep_qiskit_74.qasm                 benign     benign     ✓        0/1             0.0000      
+ae_indep_qiskit_28.qasm                  benign     malicious  ✗        2/3             0.6667      
+qnn_indep_qiskit_34.qasm                 benign     malicious  ✗        11/14            0.7857      
+malicious_qubit_shuttling_30_106.qasm    malicious  benign     ✗        0/1             0.0000      
+qft_indep_qiskit_17.qasm                 benign     benign     ✓        0/1             0.0000      
+qpeinexact_indep_qiskit_97.qasm          benign     malicious  ✗        14/24            0.5833      
+qpeinexact_indep_qiskit_32.qasm          benign     malicious  ✗        2/3             0.6667      
+malicious_qubit_shuttling_20_128.qasm    malicious  malicious  ✓        1/2             0.5000      
+ae_indep_qiskit_67.qasm                  benign     malicious  ✗        11/13            0.8462      
+qftentangled_indep_qiskit_90.qasm        benign     malicious  ✗        19/21            0.9048      
+malicious_trojan_attack_27_34.qasm       malicious  malicious  ✓        1/1             1.0000      
+qft_indep_qiskit_14.qasm                 benign     benign     ✓        0/1             0.0000      
+malicious_qubit_shuttling_15_7.qasm      malicious  malicious  ✓        1/2             0.5000      
+qnn_indep_qiskit_47.qasm                 benign     malicious  ✗        25/27            0.9259      
+graphstate_indep_qiskit_56.qasm          benign     benign     ✓        0/1             0.0000      
+qnn_indep_qiskit_64.qasm                 benign     malicious  ✗        43/50            0.8600      
+ghz_indep_qiskit_44.qasm                 benign     benign     ✓        0/1             0.0000      
+qpeexact_indep_qiskit_3.qasm             benign     benign     ✓        0/1             0.0000      
+malicious_qubit_shuttling_17_183.qasm    malicious  benign     ✗        0/2             0.0000      
+dj_indep_qiskit_38.qasm                  benign     benign     ✓        0/1             0.0000      
+malicious_qubit_shuttling_5_122.qasm     malicious  benign     ✗        0/1             0.0000      
+qpeinexact_indep_qiskit_20.qasm          benign     malicious  ✗        2/2             1.0000      
+malicious_qubit_shuttling_16_103.qasm    malicious  malicious  ✓        1/2             0.5000      
+qpeinexact_indep_qiskit_87.qasm          benign     malicious  ✗        16/20            0.8000      
+qft_indep_qiskit_66.qasm                 benign     malicious  ✗        9/12            0.7500      
+graphstate_indep_qiskit_23.qasm          benign     benign     ✓        0/1             0.0000      
+qaoa_indep_qiskit_11.qasm                benign     benign     ✓        0/1             0.0000      
+malicious_qubit_shuttling_5_30.qasm      malicious  malicious  ✓        1/1             1.0000      
+malicious_qubit_shuttling_17_68.qasm     malicious  benign     ✗        0/1             0.0000      
+dj_indep_qiskit_94.qasm                  benign     malicious  ✗        1/2             0.5000      
+malicious_immediate_measurement_14_34.qasm malicious  malicious  ✓        1/1             1.0000      
+qft_indep_qiskit_12.qasm                 benign     benign     ✓        0/1             0.0000      
+ae_indep_qiskit_2.qasm                   benign     benign     ✓        0/1             0.0000      
+malicious_immediate_measurement_14_43.qasm malicious  malicious  ✓        1/1             1.0000      
+dj_indep_qiskit_16.qasm                  benign     benign     ✓        0/1             0.0000      
+qpeexact_indep_qiskit_22.qasm            benign     benign     ✓        0/2             0.0000      
+graphstate_indep_qiskit_5.qasm           benign     benign     ✓        0/1             0.0000      
+malicious_qubit_shuttling_3_80.qasm      malicious  malicious  ✓        1/1             1.0000      
+portfoliovqe_indep_qiskit_13.qasm        benign     benign     ✓        0/1             0.0000      
+wstate_indep_qiskit_17.qasm              benign     benign     ✓        0/1             0.0000      
+malicious_qubit_shuttling_30_93.qasm     malicious  malicious  ✓        1/2             0.5000      
+qpeinexact_indep_qiskit_75.qasm          benign     malicious  ✗        10/15            0.6667      
+qnn_indep_qiskit_44.qasm                 benign     malicious  ✗        21/24            0.8750      
+malicious_immediate_measurement_19_112.qasm malicious  malicious  ✓        1/1             1.0000      
+wstate_indep_qiskit_6.qasm               benign     benign     ✓        0/1             0.0000      
+dj_indep_qiskit_60.qasm                  benign     benign     ✓        0/1             0.0000      
+wstate_indep_qiskit_48.qasm              benign     malicious  ✗        1/2             0.5000      
+dj_indep_qiskit_20.qasm                  benign     benign     ✓        0/1             0.0000      
+graphstate_indep_qiskit_66.qasm          benign     benign     ✓        0/1             0.0000      
+ghz_indep_qiskit_79.qasm                 benign     benign     ✓        0/1             0.0000      
+malicious_qubit_shuttling_10_29.qasm     malicious  benign     ✗        0/1             0.0000      
+malicious_trojan_attack_15_49.qasm       malicious  malicious  ✓        1/1             1.0000      
+malicious_qubit_shuttling_29_76.qasm     malicious  malicious  ✓        1/1             1.0000      
+ghz_indep_qiskit_53.qasm                 benign     benign     ✓        0/1             0.0000      
+malicious_immediate_measurement_11_71.qasm malicious  malicious  ✓        1/1             1.0000      
+malicious_qubit_shuttling_9_134.qasm     malicious  malicious  ✓        1/1             1.0000      
+qaoa_indep_qiskit_12.qasm                benign     benign     ✓        0/1             0.0000      
+graphstate_indep_qiskit_88.qasm          benign     benign     ✓        0/1             0.0000      
+malicious_qubit_shuttling_27_2.qasm      malicious  benign     ✗        0/1             0.0000      
+wstate_indep_qiskit_11.qasm              benign     benign     ✓        0/1             0.0000      
+malicious_immediate_measurement_12_174.qasm malicious  malicious  ✓        1/1             1.0000      
+qft_indep_qiskit_45.qasm                 benign     malicious  ✗        4/6             0.6667      
+malicious_immediate_measurement_4_45.qasm malicious  benign     ✗        0/1             0.0000      
+malicious_trojan_attack_2_61.qasm        malicious  malicious  ✓        1/1             1.0000      
+wstate_indep_qiskit_68.qasm              benign     benign     ✓        0/2             0.0000      
+graphstate_indep_qiskit_90.qasm          benign     benign     ✓        0/1             0.0000      
+malicious_immediate_measurement_21_61.qasm malicious  malicious  ✓        1/1             1.0000      
+malicious_immediate_measurement_22_27.qasm malicious  benign     ✗        0/1             0.0000      
+qft_indep_qiskit_22.qasm                 benign     benign     ✓        0/2             0.0000      
+malicious_trojan_attack_3_84.qasm        malicious  malicious  ✓        1/1             1.0000      
+malicious_trojan_attack_26_21.qasm       malicious  malicious  ✓        1/1             1.0000      
+malicious_trojan_attack_3_11.qasm        malicious  malicious  ✓        1/1             1.0000      
+qft_indep_qiskit_95.qasm                 benign     malicious  ✗        21/23            0.9130      
+dj_indep_qiskit_7.qasm                   benign     benign     ✓        0/1             0.0000      
+qftentangled_indep_qiskit_12.qasm        benign     benign     ✓        0/1             0.0000      
+qpeinexact_indep_qiskit_99.qasm          benign     malicious  ✗        15/25            0.6000      
+malicious_qubit_shuttling_10_87.qasm     malicious  benign     ✗        0/1             0.0000      
+malicious_immediate_measurement_20_2.qasm malicious  malicious  ✓        1/1             1.0000      
+dj_indep_qiskit_43.qasm                  benign     benign     ✓        0/1             0.0000      
+malicious_immediate_measurement_10_88.qasm malicious  malicious  ✓        1/1             1.0000      
+qpeinexact_indep_qiskit_54.qasm          benign     malicious  ✗        4/8             0.5000      
+graphstate_indep_qiskit_29.qasm          benign     benign     ✓        0/1             0.0000      
+wstate_indep_qiskit_93.qasm              benign     malicious  ✗        2/3             0.6667      
+qpeinexact_indep_qiskit_34.qasm          benign     malicious  ✗        2/4             0.5000      
+dj_indep_qiskit_17.qasm                  benign     benign     ✓        0/1             0.0000      
+qpeexact_indep_qiskit_86.qasm            benign     malicious  ✗        14/19            0.7368      
+dj_indep_qiskit_14.qasm                  benign     benign     ✓        0/1             0.0000      
+qpeinexact_indep_qiskit_65.qasm          benign     malicious  ✗        8/12            0.6667      
