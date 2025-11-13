@@ -1,9 +1,10 @@
 # Malicious Qubits - Home of `qiskit_validation_addon`
 
 - Python package is in `qiskit_validation_addon`
-- Finetuning workflows with models in respective `<<MODEL HERE>>.py` files.
-- Training data in `training/ and training.jsonl`
-- Validation data in `validation/ and validation.jsonl`
+- Finetuning and nonfinetuning workflows with models in respective `train.py` files.
+- Testing data in `testing/`
+- Training data in `training/`
+- Validation data in `validation/`
 - See a working example in `examples/`
 
 ## Using the python package
