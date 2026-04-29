@@ -1,4 +1,4 @@
-# Malicious Qubits - Home of `qiskit_validation_addon`
+# Bad Qubits - Home of `qiskit_validation_addon`
 
 - Python package is in `qiskit_validation_addon`
 - Finetuning and nonfinetuning workflows with models in respective `train.py` files.
@@ -21,7 +21,7 @@ cx q[0],q[1];
 measure q[0] -> c[0];
 measure q[1] -> c[1];
 """)
-print(result.label)  # "Malicious" or "Benign"
+print(result.label)  # "Bad" or "Benign"
 print(result.raw_response)  # Raw model output
 ```
 
